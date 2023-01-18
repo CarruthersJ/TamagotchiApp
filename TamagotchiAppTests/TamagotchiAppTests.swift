@@ -11,7 +11,7 @@ import XCTest
 class TamagotchiAppTests: XCTestCase {
 
     func testThatTamagotchiInitialisesWithBaseLevelsOfAttributes() {
-        let tamagotchi = TamagotchiClass(name: "Tamagotchi")
+        let tamagotchi = Tamagotchi(name: "Tamagotchi")
         let tamagotchiAttributes = tamagotchi.displayStats()
         
         let expectedHunger = 5

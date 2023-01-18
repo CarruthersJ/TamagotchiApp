@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct TamagotchiNames {
+struct TamagotchiNameList {
     let tamagotchiNames = ["Mametchi", "Kuromametchi", "Kikitchi", "Tarakotchi", "Gozarutchi", "Nonopotchi", "Urutchi", "Shimashimatchi"]
 }
