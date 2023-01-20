@@ -11,7 +11,7 @@ class Tamagotchi: ObservableObject {
     @Published private var hunger: Int
     @Published private var happiness: Double
     @Published private var isTired: Bool
-    @Published private let name: String
+    private let name: String
     @Published private var age: Int
     private var isSick: Bool
     

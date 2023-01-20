@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject tamagotchi = Tamagotchi()
+    @StateObject private var tamagotchi = Tamagotchi(name: "")
     
     var body: some View {
         VStack {
             Text("")
+            
         }
     }
 }
