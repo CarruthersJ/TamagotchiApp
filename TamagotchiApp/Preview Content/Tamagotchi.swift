@@ -11,7 +11,7 @@ class Tamagotchi: ObservableObject {
     @Published private var hunger: Int
     @Published private var happiness: Double
     @Published private var isTired: Bool
-    private let name: String
+    let name: String
     @Published private var age: Int
     private var isSick: Bool
     
@@ -38,7 +38,7 @@ class Tamagotchi: ObservableObject {
     static func chooseName() -> String {
         let tamagotchiNameStruct = TamagotchiNameList()
         let listOfNames = tamagotchiNameStruct.tamagotchiNames
-        let randomIndex = Int.random(in: 0 ... listOfNames.count)
+        let randomIndex = Int.random(in: 0 ..< listOfNames.count)
         let randomName = listOfNames[randomIndex]
         return randomName
     }
