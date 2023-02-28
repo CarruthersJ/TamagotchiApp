@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5DA95729AEBA36005F9DA5 /* DeathScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5DA95629AEBA36005F9DA5 /* DeathScreen.swift */; };
 		E362F3E62972C068006FB605 /* TamagotchiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E362F3E52972C068006FB605 /* TamagotchiApp.swift */; };
 		E362F3E82972C068006FB605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E362F3E72972C068006FB605 /* ContentView.swift */; };
 		E362F3EA2972C069006FB605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E362F3E92972C069006FB605 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C5DA95629AEBA36005F9DA5 /* DeathScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathScreen.swift; sourceTree = "<group>"; };
 		E362F3E22972C068006FB605 /* TamagotchiIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E362F3E52972C068006FB605 /* TamagotchiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiApp.swift; sourceTree = "<group>"; };
 		E362F3E72972C068006FB605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				E362F3E52972C068006FB605 /* TamagotchiApp.swift */,
 				E362F3E72972C068006FB605 /* ContentView.swift */,
+				2C5DA95629AEBA36005F9DA5 /* DeathScreen.swift */,
 				E362F3E92972C069006FB605 /* Assets.xcassets */,
 				E362F3EB2972C06A006FB605 /* Preview Content */,
 			);
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5DA95729AEBA36005F9DA5 /* DeathScreen.swift in Sources */,
 				E362F3E82972C068006FB605 /* ContentView.swift in Sources */,
 				E362F4162972C3FC006FB605 /* TamagotchiNameList.swift in Sources */,
 				E362F3E62972C068006FB605 /* TamagotchiApp.swift in Sources */,
