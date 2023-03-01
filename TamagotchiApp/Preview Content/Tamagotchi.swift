@@ -47,13 +47,16 @@ class Tamagotchi: ObservableObject {
     }
     
     func feed() {
-        if self.hunger < 20 && self.hunger > 0{
+        if self.hunger < 20 && self.hunger > 0 {
             self.hunger -= 1
+        }
+        if self.happiness < 9.9 && self.happiness > 0 {
+            self.happiness += 0.20
         }
     }
     
     func increaseHunger(_ amountToIncrease: Int) {
-        if self.hunger < 20 {
+        if self.hunger < 20 - amountToIncrease {
             hunger += amountToIncrease
         } else {
             self.isDead = true
@@ -66,5 +69,13 @@ class Tamagotchi: ObservableObject {
     
     func die() {
         self.isDead = true
+    }
+    
+    func getOlder() {
+        self.age += 1
+    }
+    
+    func requestAge() -> Int {
+        return self.age
     }
 }

@@ -6,9 +6,22 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct DeathScreenView : ContentView {
-    var body some View:
+struct DeathScreenView : View {
+    @State var makeNewTamagotchi: Bool = false
+    var body: some View {
+        if makeNewTamagotchi == false {
+            VStack {
+                Text("Your Tamagotchi has died")
+                Button("Make new Tamagotchi") {
+                    makeNewTamagotchi = true
+                }
+            }
+        } else {
+            ContentView()
+        }
+    }
 }
 
 
