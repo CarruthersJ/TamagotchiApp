@@ -78,4 +78,8 @@ class Tamagotchi: ObservableObject {
     func requestAge() -> Int {
         return self.age
     }
+    
+    func playGame() {
+        self.happiness += 0.5
+    }
 }

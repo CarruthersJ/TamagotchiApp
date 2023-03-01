@@ -11,6 +11,7 @@ struct ContentView: View {
     @StateObject private var tamagotchi = Tamagotchi(name: "")
     @State private var timeToFeed = 15
     @State private var timeAlive = 0
+    @State private var gameCooldown = 20
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -42,17 +43,29 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("FUNCTIONS")) {
-                    Button("Feed Tamagotchi") {
-                        tamagotchi.feed()
+                    VStack(alignment: .leading) {
+                        Button("Feed Tamagotchi") {
+                            tamagotchi.feed()
+                        }
+                        Divider()
+                        Button("Play with Tamagotchi") {
+                            if gameCooldown == 0 {
+                                tamagotchi.playGame()
+                                gameCooldown = 20
+                            }
+                            
+                        }
                     }
+                    
                 }
                 Section(header: Text("Timers")) {
                     VStack(alignment: .leading) {
                         Text("Time until hungry: \(timeToFeed)")
                             .onReceive(timer) { _ in
                                 if tamagotchi.requestHunger() == 20 {
-                                    tamagotchi.die()                          }
-                                else {
+                                    tamagotchi.die()
+                                    
+                                } else {
                                     if self.timeToFeed > 0 {
                                         self.timeToFeed -= 1
                                     } else {
@@ -72,6 +85,12 @@ struct ContentView: View {
                                     tamagotchi.getOlder()
                                 }
                                         
+                            }
+                        Text("Cooldown for playing a game: \(gameCooldown)")
+                            .onReceive(timer) { _ in
+                                if gameCooldown > 0 {
+                                    gameCooldown -= 1
+                                }
                             }
                     }
                 }

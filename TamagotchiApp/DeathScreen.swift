@@ -14,7 +14,7 @@ struct DeathScreenView : View {
         if makeNewTamagotchi == false {
             VStack {
                 Text("Your Tamagotchi has died")
-                Button("Make new Tamagotchi") {
+                Button("Play again with new Tamagotchi") {
                     makeNewTamagotchi = true
                 }
             }
