@@ -9,7 +9,7 @@ import Foundation
 
 class Tamagotchi: ObservableObject {
     @Published private var hunger: Int
-    @Published private var happiness: Double
+    @Published var happiness: Double
     @Published private var isTired: Bool
     let name: String
     @Published private var age: Int
@@ -46,12 +46,17 @@ class Tamagotchi: ObservableObject {
         return randomName
     }
     
-    func feed() {
+    func feedSnack() {
         if self.hunger < 20 && self.hunger > 0 {
             self.hunger -= 1
         }
-        if self.happiness < 9.9 && self.happiness > 0 {
-            self.happiness += 0.20
+    }
+    
+    func feedMeal() {
+        if self.hunger < 20 && self.hunger > 5 {
+            self.hunger -= 5
+        } else if self.hunger <= 5 {
+            self.hunger = 0
         }
     }
     

@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var tamagotchi = Tamagotchi(name: "")
-    @State private var timeToFeed = 15
+    @State private var timeToFeed = 5
     @State private var timeAlive = 0
     @State private var gameCooldown = 20
+    @State private var happinessTimer = 5
+    @State private var mealCooldown = 10
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -44,8 +46,16 @@ struct ContentView: View {
                 }
                 Section(header: Text("FUNCTIONS")) {
                     VStack(alignment: .leading) {
-                        Button("Feed Tamagotchi") {
-                            tamagotchi.feed()
+                        Button("Feed Tamagotchi snack") {
+                            tamagotchi.feedSnack()
+                        }
+                        Divider()
+                        Button("Feed Tamagotchi meal") {
+                            if mealCooldown == 0 {
+                                tamagotchi.feedMeal()
+                                mealCooldown = 10
+                            }
+                            
                         }
                         Divider()
                         Button("Play with Tamagotchi") {
@@ -69,19 +79,25 @@ struct ContentView: View {
                                     if self.timeToFeed > 0 {
                                         self.timeToFeed -= 1
                                     } else {
-                                        self.timeToFeed = 15
+                                        self.timeToFeed = 5
                                         tamagotchi.increaseHunger(3)
                                     }
                                 }
+                                if happinessTimer > 0 {
+                                    happinessTimer -= 1
+                                } else if happinessTimer == 0 {
+                                    happinessTimer = 5
+                                    tamagotchi.happiness -= 0.1
+                                }
                                         
                             }
-                        Text("Age: \(stats.age) minutes")
+                        Text("Age: \(stats.age)")
                             .onReceive(timer) { _ in
-                                if tamagotchi.requestAge() == 4 {
+                                if tamagotchi.requestAge() == 20 {
                                     tamagotchi.die()
                                 }
                                 timeAlive += 1
-                                if timeAlive % 60 == 0 {
+                                if timeAlive % 5 == 0 {
                                     tamagotchi.getOlder()
                                 }
                                         
@@ -90,6 +106,12 @@ struct ContentView: View {
                             .onReceive(timer) { _ in
                                 if gameCooldown > 0 {
                                     gameCooldown -= 1
+                                }
+                            }
+                        Text("Cooldown for feeding a meal: \(mealCooldown)")
+                            .onReceive(timer) { _ in
+                                if mealCooldown > 0 {
+                                    mealCooldown -= 1
                                 }
                             }
                     }
